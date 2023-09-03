@@ -1,24 +1,31 @@
-# README
+# スイーツレシピコミュ
+​
+## サイト概要
+### サイトテーマ
+スイーツを作りたい人がレシピを探しながら自分のレシピもシェアできるサイト
+​
+### テーマを選んだ理由
+お菓子作りが好なので色々なレシピを皆でシェアして、視野が広がるといいなと普段から感じていました。
+コロナ禍でホームベイキングの需要が高まり、実際家でスイーツを作る人が増えつつあります。
+しかし、世の中のサイトはクックパッドやデリッシュキッチンなどスイーツに特化していないサイトが多いです。
+そこで、スイーツに特化したサイトがあれば便利だと考えました。
+​
+### ターゲットユーザ
+-- お菓子作りが好きで、レシピの幅を広げたい人
+-- 自分のレシピをみんなにシェアしてコメントをもらい、自分のレシピをブラッシュアップしていきたい人
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+​
+### 主な利用シーン
+-- 気になるスイーツレシピを検索する時
+-- 自分のスイーツレシピを投稿する時
+-- レシピに対するコメントを知りたい時
+​
+## 設計書
+https://docs.google.com/spreadsheets/d/1dMHM5W06q7pTxrJ3Mt0md4olIw8K8CVOGISyI4eY940/edit#gid=1091086188
+​
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
