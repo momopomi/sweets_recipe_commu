@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 px-sm-0 offset-sm-1">
+      <h2>レシピ新規登録</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-10 px-sm-0 mx-auto mb-5">
+      <%= form_with model: @recipe, url: recipes_path, local: true do |f| %>
+      <table>
+        <tr>
+          <div class="form-group">
+            <th><%= f.label :レシピ画像 %></th>
+            <th><%= f.file_field :image %></th>
+          </div>
+        </tr>
+        <tr>
+          <div class="form-group">
+            <th><%= f.label :レシピ名 %></th>
+            <td><%= f.text_field :recipi_name %></td>
+          </div>
+        </tr>
+        <tr>
+          <div class="form-group">
+            <th><%= f.label :所要時間 %></th>
+            <td><%= f.text_field :required_time %></td>
+          </div>
+        </tr>
+        <tr>
+        <div class="form-group">
+          <th><%= f.label :材料 %></th>
+          <td><%= f.text_area :ingredient, size: "50x5" %></td>
+        </div>
+        </tr>
+        <tr>
+        <div class="form-group">
+          <th><%= f.label :工程 %></th>
+          <td><%= f.text_area :process, size: "50x5" %></td>
+        </div>
+        </tr>
+        <tr>
+        <div class="form-action">
+          <th><%= f.submit "新規登録", class:"btn btn-success" %></th>
+        </div>
+        </tr>
+      <% end %>
+      </table>
+    </div>
+  </div>
+</div>

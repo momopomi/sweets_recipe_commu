@@ -39,12 +39,12 @@
               </li>
               <li class="nav-item">
                 <%= link_to recipes_path, class: 'nav-link text-dark' do %>
-                <i class="fas fa-list">商品一覧</i>
+                <i class="fas fa-list">レシピ一覧</i>
                 <% end %>
               </li>
               <li class="nav-item">
-                <%= link_to about_path, class: 'nav-link text-dark' do %>
-                <i class="fas fa-cart">カート</i>
+                <%= link_to new_recipe_path, class: 'nav-link text-dark' do %>
+                <i class="fas fa-cart">新規投稿</i>
                 <% end %>
               </li>
               <li class="nav-item">
@@ -62,7 +62,7 @@
             <% elsif admin_signed_in? %>
               <li class="nav-item">
                 <%= link_to admin_recipes_path, class: 'nav-link text-dark' do %>
-                  <i class="fas fa-cookie-bite">商品一覧</i>
+                  <i class="fas fa-cookie-bite">レシピ一覧</i>
                 <% end %>
               </li>
               <li class="nav-item">
@@ -72,7 +72,7 @@
               </li>
               <li class="nav-item">
                 <%= link_to admin_path, class: 'nav-link text-dark' do %>
-                  <i class="fas fa-clipboard-list">注文履歴一覧</i>
+                  <i class="fas fa-clipboard-list">投稿一覧</i>
                 <% end %>
               </li>
               
@@ -96,7 +96,7 @@
               </li>
               <li class="nav-item">
                 <%= link_to recipes_path, class: 'nav-link text-dark' do %>
-                <i class="fas fa-cookie-bite">商品一覧</i>
+                <i class="fas fa-cookie-bite">レシピ一覧</i>
                 <% end %>
               </li>
               <li class="nav-item">
