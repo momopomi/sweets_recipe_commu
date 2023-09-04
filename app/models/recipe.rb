@@ -1,5 +1,6 @@
 class Recipe < ApplicationRecord
   belongs_to :customer
+  has_many :comments, dependent: :destroy
   has_one_attached :image
 
   validates :recipe_name, presence: true

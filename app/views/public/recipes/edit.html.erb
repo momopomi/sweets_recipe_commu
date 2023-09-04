@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 px-sm-0 offset-sm-1">
+      <h2>レシピ編集</h2>
+    </div>
+  </div>
+   <div class="row">  
+    <div class="col-sm-10 px-sm-0 mx-auto">
+      <%= form_with model: @recipe, url: recipe_path, local: true do |f| %>
+      <table>
+      <tr>
+        <div class="form-group">
+          <th><%= f.label :レシピ画像 %></th>
+          <td><%= f.file_field :image %></td>
+        </div>
+      </tr>
+      <tr>
+        <div class="form-group">
+          <th><%= f.label :レシピ名 %></th>
+          <td><%= f.text_field :recipe_name %></td>
+        </div>
+      </tr>
+      <tr>
+        <div class="form-group">
+          <th><%= f.label :所要時間 %></th>
+          <td><%= f.text_field :required_time %></td>
+        </div>
+      </tr>
+      <tr>
+        <div class="form-group">
+          <th><%= f.label :材料 %></th>
+          <td><%= f.text_area :ingredient, size: "50x5" %></td>
+        </div>
+      </tr>
+      <tr>
+      <tr>
+        <div class="form-group">
+          <th><%= f.label :工程 %></th>
+          <td><%= f.text_area :process, size: "50x5" %></td>
+        </div>
+      </tr>
+      <tr>        
+        <div class="form-action">
+          <td><%= f.submit "変更を保存", class:"btn btn-success" %></td>
+        </div>
+      </tr>
+      </table>
+      <% end %>
+    </div>
+  </div>
+</div>

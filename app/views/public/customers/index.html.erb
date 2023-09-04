@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-8 px-sm-0 offset-sm-1">
-      <h2>レシピ一覧</h2>
+      <h2>レシピ投稿一覧</h2>
     </div>
     <div class="col-sm-2 px-sm-0 text-right mb-2">
-      <%= link_to new_reci_path, class:"btn btn--circle btn--circle-c btn--shadow" do %>
+      <%= link_to resipis_path(params.id), class:"btn btn--circle btn--circle-c btn--shadow" do %>
         <i class="fas fa-plus"></i>
       <% end %>
     </div>
@@ -13,25 +13,26 @@
       <table class="table text-center admin-items mb-5">
           <thead>
             <tr>
-              <th>商品ID</th>
+              <th>投稿日時</th>
               <th>レシピ名</th>
-              <th>所要時間</th>
+             
             </tr>
           </thead>
-          <% @recipes.each do |recipe| %>
+          <% @recipes.each do |item| %>
           <tbody>
             <tr>
-              <td class="align-middle"><%= recipe.id %></td>
+              <td class="align-middle"><%= created_at %></td>
               <td class="align-middle"><%= link_to recipes_path(recipe.id) do %>
                 <u><%= recipe_name %></u>
               </td>
               <% end %>
-              <td class="align-middle"><%= required_time %></td>
+              <%= link_to "詳細", recipes_path(params.id), class: "btn btn-success" %>
+              <%= link_to "削除", recipes_path(@recipe.customer.id), method: :delete , class: "btn btn-danger"%>
             </tr>
           </tbody>
           <% end %>
         </table>
-      <%= paginate @recipes %>
+      <%= paginate @items %>
     </div>
   </div>
 </div>

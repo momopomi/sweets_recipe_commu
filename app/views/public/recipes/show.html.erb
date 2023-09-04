@@ -1,0 +1,55 @@
+<div class="container takasa">
+  <h2レシピ詳細</h2><br>
+  <div class="row">
+    <!-- 画像選択欄 -->
+    <div class="col-xs-4">
+      <%= image_tag @recipe.image, size: "300x300", fallback: "no_image.jpg"%><br>
+    </div>
+
+    <!-- 商品登録フォーム -->
+    <div class="col-xs-8">
+      <h4 style="margin-bottom: 30px;">レシピ名
+        <%= @recipe.recipe_name %>
+      </h4>
+
+      <div style="display: flex;">
+        <h4 style="margin: 0 30px 30px 0;">所要時間</h4>
+        <div style="overflow-wrap: break-word;　word-wrap: break-word; width: 300px;">
+          <%= @recipe.recipe_name %>
+        </div>
+      </div>
+      
+      <div style="display: flex;">
+        <h4 style="margin: 0 30px 30px 0;">材料</h4>
+        <div style="overflow-wrap: break-word;　word-wrap: break-word; width: 300px;">
+          <%= @recipe.ingredient %>
+        </div>
+      </div>
+      
+      <div style="display: flex;">
+        <h4 style="margin: 0 30px 30px 0;">工程</h4>
+        <div style="overflow-wrap: break-word;　word-wrap: break-word; width: 300px;">
+          <%= @recipe.process %>
+        </div>
+      </div>
+      
+      <p>コメント投稿</p> 
+ <%= form_for [@post, @comment], local: true do |f| %>  
+ <!-- comment は、postに紐づくので、配列で書く-->
+    <%= f.text_area :comment_test %>
+    <%= f.submit "投稿" %>
+      
+      <p>コメント表示</p> 
+    <%= @comments.each do |c| %>
+    <%= c.user.name%>
+    <%= if c.user.id == @post.user.id %>   <!-- 記事投稿者-->
+    <p>投稿者</p> 
+    <%= simple_format(c.comment_text) %>   # 改行ありで表示
+    <%= link_to '削除', post_comment_path(@post, c), data: {confirm: '本当に削除しますか？'}, method: :delete %>
+    <!--コメント削除には、@post（親）, @commentsのc に渡す必要がある-->
+      
+      
+      <%= button_to '編集する',edit_admin_item_path(@item.id), method: :get ,class: "btn btn-primary ", style: "margin-left:70%;"%>
+    </div>
+  </div>
+</div>

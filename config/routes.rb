@@ -28,9 +28,11 @@ scope module: :public do
     resource :customers, only: [:show, :update, :edit, :index]
     
     resources :recipes, only: [:new, :create, :show, :index, :edit, :update, :destroy]
-    
-    
-    resources :comments, only: [:create, :destroy]
+
+    resources :res do   # posts に紐づかせるため、ネストにする 
+    resources :comments, only: [:create, :destroy] 
+    end
+
     root "homes#top"
     get "/about" => "homes#about"
     get "/search" => "items#search"
