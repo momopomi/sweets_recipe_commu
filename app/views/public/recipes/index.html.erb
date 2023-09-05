@@ -4,7 +4,7 @@
       <h2>レシピ一覧</h2>
     </div>
     <div class="col-sm-2 px-sm-0 text-right mb-2">
-      <%= link_to new_reci_path, class:"btn btn--circle btn--circle-c btn--shadow" do %>
+      <%= link_to new_recipe_path, class:"btn btn--circle btn--circle-c btn--shadow" do %>
         <i class="fas fa-plus"></i>
       <% end %>
     </div>
@@ -22,16 +22,16 @@
           <tbody>
             <tr>
               <td class="align-middle"><%= recipe.id %></td>
-              <td class="align-middle"><%= link_to recipes_path(recipe.id) do %>
-                <u><%= recipe_name %></u>
+              <td class="align-middle"><%= link_to recipe_path(recipe.id) do %>
+                <u><%= recipe.recipe_name %></u>
               </td>
               <% end %>
-              <td class="align-middle"><%= required_time %></td>
+              <td class="align-middle"><%= recipe.required_time %></td>
             </tr>
           </tbody>
           <% end %>
         </table>
-      <%= paginate @recipes %>
+    
     </div>
   </div>
 </div>

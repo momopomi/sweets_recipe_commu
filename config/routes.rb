@@ -27,10 +27,8 @@ scope module: :public do
     patch "/customers/withdraw" => "customers#withdraw"
     resource :customers, only: [:show, :update, :edit, :index]
     
-    resources :recipes, only: [:new, :create, :show, :index, :edit, :update, :destroy]
-
-    resources :res do   # posts に紐づかせるため、ネストにする 
-    resources :comments, only: [:create, :destroy] 
+    resources :recipes, only: [:new, :create, :show, :index, :edit, :update, :destroy] do
+      resources :comments, only: [:create, :destroy] 
     end
 
     root "homes#top"
