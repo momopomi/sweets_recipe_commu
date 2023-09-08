@@ -13,7 +13,7 @@
       <table class="table text-center admin-items mb-5">
           <thead>
             <tr>
-              <th>商品ID</th>
+              <th>レシピID</th>
               <th>レシピ名</th>
               <th>所要時間</th>
             </tr>
@@ -26,12 +26,12 @@
                 <u><%= recipe.recipe_name %></u>
               </td>
               <% end %>
-              <td class="align-middle"><%= recipe.required_time %></td>
+              <td class="align-middle"><%= recipe.required_time %>分</td>
             </tr>
           </tbody>
           <% end %>
         </table>
-    
+      <%#= paginate @items %>   
     </div>
   </div>
 </div>

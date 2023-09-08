@@ -6,7 +6,7 @@
   </div>
    <div class="row">  
     <div class="col-sm-10 px-sm-0 mx-auto">
-      <%= form_with model: @recipe, url: recipe_path, local: true do |f| %>
+      <%= form_with model: @recipe, url: admin_recipe_path, local: true do |f| %>
       <table>
       <tr>
         <div class="form-group">
@@ -22,7 +22,7 @@
       </tr>
       <tr>
         <div class="form-group">
-          <th><%= f.label :所要時間 %>（分単位で入力</th>
+          <th><%= f.label :所要時間 %></th>
           <td><%= f.text_field :required_time %>分</td>
         </div>
       </tr>
@@ -39,7 +39,7 @@
           <td><%= f.text_area :process, size: "50x5" %></td>
         </div>
       </tr>
-      <tr>        
+      <tr>
         <div class="form-action">
           <td><%= f.submit "変更を保存", class:"btn btn-success" %></td>
         </div>

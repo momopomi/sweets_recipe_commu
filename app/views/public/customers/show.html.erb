@@ -1,5 +1,5 @@
 <h3>マイページ</h3>
-<h3>登録情報<%= link_to "編集する", edit_customers_path(current_customer.id), class: "btn btn-success" %></h3>
+<h3>登録情報<%= link_to "編集する", edit_customer_path, class: "btn btn-success" %></h3>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,4 +23,4 @@
 </body>
 </html>
 
-<h3>投稿履歴<%= link_to "一覧を見る", recipes_path, class: "btn btn-success" %></h3>
+<h3>投稿履歴<%= link_to "一覧を見る", customers_path, class: "btn btn-success" %></h3>

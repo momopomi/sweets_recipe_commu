@@ -25,7 +25,7 @@ namespace :admin do
 scope module: :public do
     get "/customers/check" => "customers#check"
     patch "/customers/withdraw" => "customers#withdraw"
-    resource :customers, only: [:show, :update, :edit, :index]
+    resources :customers, only: [:show, :update, :edit, :index]
     
     resources :recipes, only: [:new, :create, :show, :index, :edit, :update, :destroy] do
       resources :comments, only: [:create, :destroy] 

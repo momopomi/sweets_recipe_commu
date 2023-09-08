@@ -16,10 +16,6 @@ class Public::RecipesController < ApplicationController
     end
   end
 
-  def index
-    @recipes = Recipe.all
-  end
-
   def show
     @recipe = Recipe.find(params[:id])
     @comment = Comment.new     # フォーム用のインスタンス作成(コメント追加用)
@@ -27,6 +23,10 @@ class Public::RecipesController < ApplicationController
 
   def edit
     @recipe = Recipe.find(params[:id])
+  end
+  
+  def index
+    @recipes = Recipe.all
   end
 
   def update
@@ -39,10 +39,17 @@ class Public::RecipesController < ApplicationController
        render :edit
      end
   end
+  
+  def destroy
+    @recipe = Recipe.find(params[:id])
+    @recipe.destroy
+    flash[:success] = "選択いただいたカートを空にしました"
+    redirect_back(fallback_location: root_path)
+  end
 
   private
   def recipe_params
-    params.require(:recipe).permit(:image, :recipe_name, :required_time, :ingredient, :process)
+    params.require(:recipe).permit(:image, :recipe_name, :required_time, :ingredient, :process,)
   end
 
 end

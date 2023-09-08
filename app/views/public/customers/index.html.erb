@@ -4,35 +4,32 @@
       <h2>レシピ投稿一覧</h2>
     </div>
     <div class="col-sm-2 px-sm-0 text-right mb-2">
-      <%= link_to recipes_path(params.id), class:"btn btn--circle btn--circle-c btn--shadow" do %>
+      <%= link_to new_recipe_path, class:"btn btn--circle btn--circle-c btn--shadow" do %>
         <i class="fas fa-plus"></i>
       <% end %>
     </div>
     <div class="row">
       <div class="col-sm-12 px-sm-0 mx-auto mb-5">
-      <table class="table text-center admin-items mb-5">
+      <table class="table text-center mb-5">
           <thead>
             <tr>
               <th>投稿日時</th>
               <th>レシピ名</th>
-
             </tr>
           </thead>
-          <% @recipes.each do |item| %>
+          <% @recipes.each do |recipe| %>
           <tbody>
             <tr>
-              <td class="align-middle"><%= created_at %></td>
-              <td class="align-middle"><%= link_to recipes_path(recipe.id) do %>
-                <u><%= recipe_name %></u>
-              </td>
-              <% end %>
-              <%= link_to "詳細", recipes_path(params.id), class: "btn btn-success" %>
-              <%= link_to "削除", recipes_path(@recipe.customer.id), method: :delete , class: "btn btn-danger"%>
+              <td class="align-middle"><%= recipe.created_at %></td>
+              <td class="align-middle"><%= recipe.recipe_name %></td>
+              <td class="align-middle"><%= link_to "詳細", recipe_path(recipe.id), class: "btn btn-primary"%></td>
+              <td class="align-middle"><%= link_to "削除", recipe_path(recipe.id), method: :delete , class: "btn btn-danger", data: { confirm: '削除しますか？' }%></td>
             </tr>
           </tbody>
           <% end %>
         </table>
-      <%= paginate @items %>
+      <%#= paginate @items %>
+      </div>
     </div>
   </div>
 </div>
