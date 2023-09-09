@@ -5,7 +5,8 @@
     </div>
   </div>
 
-  <%= form_with model: @customer, url: customer_path, method: :patch do |f| %>
+  <%= form_with model: @customer, url: customer_path(@customer.id), method: :patch do |f| %>
+  <%#= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 
   
     <div class="row">

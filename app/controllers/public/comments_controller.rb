@@ -12,8 +12,10 @@ class Public::CommentsController < ApplicationController
   end
 
   def destroy
-    Comment.find(params[:id]).destroy
-    redirect_to recipe_path(params[:recipe_id])
+    comment = Comment.find(params[:id])
+    recipe = comment.recipe
+    comment.destroy
+    redirect_to recipe_path(recipe)
   end
 
 

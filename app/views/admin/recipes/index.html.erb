@@ -1,25 +1,24 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-8 px-sm-0 offset-sm-1">
-      <h2>レシピ一覧</h2>
+      <h2>投稿履歴一覧</h2>
+    </div>
+    <div class="row">
       <div class="col-sm-12 px-sm-0 mx-auto mb-5">
-      <table class="table text-center admin-items mb-5">
+      <table class="table text-center mb-5">
           <thead>
             <tr>
-              <th>レシピID</th>
+              <th>投稿日時</th>
               <th>レシピ名</th>
-              <th>所要時間</th>
             </tr>
           </thead>
           <% @recipes.each do |recipe| %>
           <tbody>
             <tr>
-              <td class="align-middle"><%= recipe.id %></td>
-              <td class="align-middle"><%= link_to admin_recipe_path(recipe.id) do %>
-                <u><%= recipe.recipe_name %></u>
-              </td>
-              <% end %>
-              <td class="align-middle"><%= recipe.required_time %>分</td>
+              <td class="align-middle"><%= recipe.created_at %></td>
+              <td class="align-middle"><%= recipe.recipe_name %></td>
+              <td class="align-middle"><%= link_to "詳細", admin_recipe_path(recipe.id), class: "btn btn-primary"%></td>
+              <td class="align-middle"><%= link_to "削除", admin_recipe_path(recipe.id), method: :delete , class: "btn btn-danger", data: { confirm: '削除しますか？' }%></td>
             </tr>
           </tbody>
           <% end %>

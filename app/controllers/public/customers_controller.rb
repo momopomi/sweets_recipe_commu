@@ -10,15 +10,15 @@ class Public::CustomersController < ApplicationController
   end
   
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.where(customer_id: current_customer.id)
+    
   end
   
   def update
-    
     @customer = Customer.find(params[:id])
     if @customer.update(customer_params)
         flash[:notice] = "edit successfully"
-        redirect_to customers_path(@customer.id)
+        redirect_to customer_path(@customer.id)
     else
         render :edit
     end

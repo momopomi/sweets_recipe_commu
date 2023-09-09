@@ -1,5 +1,6 @@
 class Admin::CommentsController < ApplicationController
-  before_action :authenticate_customer!    # ログイン中のみ許可
+  
+  before_action :authenticate_admin!    # ログイン中のみ許可
   
   def create
     recipe = Recipe.find(params[:recipe_id])
@@ -11,8 +12,10 @@ class Admin::CommentsController < ApplicationController
   end
 
   def destroy
-    Comment.find(params[:id]).destroy
-    redirect_to recipe_path(params[:recipe_id])
+    comment = Comment.find(params[:id])
+    recipe = comment.recipe
+    comment.destroy
+    redirect_to recipe_path(recipe)
   end
 
 

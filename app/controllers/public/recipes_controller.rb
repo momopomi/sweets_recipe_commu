@@ -18,6 +18,7 @@ class Public::RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
+    
     @comment = Comment.new     # フォーム用のインスタンス作成(コメント追加用)
   end
 

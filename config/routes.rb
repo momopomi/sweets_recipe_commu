@@ -15,11 +15,18 @@ devise_for :admin, skip: [:registrations, :passwords], controllers: {
 namespace :admin do
     
     get "/" => "homes#top"
-    resources :customers, only: [:index, :show, :edit, :update, :destroy]
     
-    resources :recipes, only: [:index, :show, :edit, :update]
+    resources :customers, only: [:index, :show, :edit, :update, :destroy] do
+       member do
+      get 'recipes'
+      end
+    end
+    
+    
+    resources :recipes, only: [:index, :show, :edit, :update, :destroy]
+    
     resources :comments, only: [:destroy]
-    get "/search" => "items#search"
+    get "/search" => "recipes#search"
   end
 
 scope module: :public do
@@ -33,7 +40,7 @@ scope module: :public do
 
     root "homes#top"
     get "/about" => "homes#about"
-    get "/search" => "items#search"
+    get "/search" => "recipes#search"
   end
 
 

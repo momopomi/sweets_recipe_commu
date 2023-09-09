@@ -39,24 +39,7 @@
     </div>
   </div>
 
-  <div class = "p-3 mb-3 mb-md-0 shadow-lg">
-      <%= form_with model: [@recipe, @comment] do |f| %>
-        <%= f.text_area :comment, size: "80x5", placeholder: "コメントをここに" %>
-        <%= f.submit "送信する" %>
-    <div id="review">
-      <%= f.label :review,'評価入力', class:'col-md-3 col-form-label' %>
-    </div>
-        <script>
-          var elem = document.getElementById('review');
-          var opt = {
-            starOn: "<%= asset_path('star-on.png') %>",
-            starOff: "<%= asset_path('star-off.png') %>",
-            scoreName: "comment[review]"
-            };
-            raty(elem,opt);
-        </script>
-      <% end %>
-  </div>
+ 
 
       <table>
         <strong>コメント一覧</strong>
@@ -80,14 +63,15 @@
                   raty(elem,opt);
                  </script>
               </td>
+              <td>
+                <%= link_to "削除", admin_comment_path(comment.id), method: :delete, class: "btn btn-danger" %>
+              </td>
             </tr>
         <% end %>
       </table>
 
 
-      <!--<div class="mt-3 text-right">-->
-      <!--<%#= link_to "削除", admin_comment_path(@comment.id), method: :delete, class: "btn btn-danger" %>-->
-      <!--</div>-->
+
 
 
   </div>

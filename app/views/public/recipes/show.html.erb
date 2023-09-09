@@ -80,15 +80,16 @@
                   raty(elem,opt);
                  </script>
               </td>
+              <td>
+                <% if comment.customer == current_customer %>
+                <%= link_to "削除", recipe_comment_path(@recipe.id, comment.id), method: :delete, class: "btn btn-danger" %>
+                <% end %>
+              </td>
             </tr>
         <% end %>
       </table>
     
-      <% if @comment.customer == current_customer %>
-      <div class="mt-3 text-right">
-      <%= link_to "削除", recipe_comment_path(comment.id), method: :delete, class: "btn btn-danger" %>
-      </div>
-      <% end %>
+      
     
   </div>
 </div>
