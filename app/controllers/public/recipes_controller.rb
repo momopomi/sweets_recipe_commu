@@ -18,6 +18,7 @@ class Public::RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
+    @genres = Genre.all
     
     @comment = Comment.new     # フォーム用のインスタンス作成(コメント追加用)
   end
@@ -28,6 +29,9 @@ class Public::RecipesController < ApplicationController
   
   def index
     @recipes = Recipe.all
+    @genres = Genre.all
+    @search = Recipe.ransack(params[:recipe])
+    @recipes = @search.result.page(params[:page]).per(8)
   end
 
   def update
@@ -50,7 +54,7 @@ class Public::RecipesController < ApplicationController
 
   private
   def recipe_params
-    params.require(:recipe).permit(:image, :recipe_name, :required_time, :ingredient, :process,)
+    params.require(:recipe).permit(:genre_id, :image, :recipe_name, :required_time, :ingredient, :process,)
   end
 
 end

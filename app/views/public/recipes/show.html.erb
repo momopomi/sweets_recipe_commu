@@ -2,14 +2,21 @@
   <h2>レシピ詳細</h2>
 
   <div class="row">
-    <div class="col-md-4">
+    
+  <%= render "public/shared/genre", genres: @genres %>
+    
+    <div class="col-md-3">
       <%= image_tag @recipe.image, fallback: "no_image.jpg", class: 'img-fluid', style: 'height: 300px; width: 100%; object-fit: cover;'%>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-5">
       <div class="mb-3 mt-3 mt-md-0">
         <h4>レシピ名</h4>
         <%= @recipe.recipe_name %>
       </div>
+      <div class="mb-3">
+       <h5>ジャンル</h5>
+        <%= @recipe.genre.name %>
+      </div>  
       <div class="mb-3">
         <h5>所要時間</h5>
         <%= @recipe.required_time %>分

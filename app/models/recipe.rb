@@ -1,5 +1,6 @@
 class Recipe < ApplicationRecord
   belongs_to :customer
+  belongs_to :genre
   has_many :comments, dependent: :destroy
   has_one_attached :image
 

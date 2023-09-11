@@ -20,6 +20,14 @@
             <td><%= f.text_field :recipe_name %></td>
           </div>
         </tr>
+        
+         <tr>
+          <div class="form-group">
+            <th><%= f.label :ジャンル %></th>
+            <td><%= f.collection_select :genre_id, Genre.all, :id, :name, :prompt => "--選択してください--" %></td>
+          </div>
+        </tr>
+        
         <tr>
           <div class="form-group">
             <th><%= f.label :所要時間 %>（分単位で入力）</th>

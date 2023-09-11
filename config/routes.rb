@@ -22,6 +22,7 @@ namespace :admin do
       end
     end
     
+    resources :genres, only: [:index, :edit, :create, :update, :destroy]
     
     resources :recipes, only: [:index, :show, :edit, :update, :destroy]
     
@@ -30,10 +31,11 @@ namespace :admin do
   end
 
 scope module: :public do
+  
     get "/customers/check" => "customers#check"
     patch "/customers/withdraw" => "customers#withdraw"
     resources :customers, only: [:show, :update, :edit, :index]
-    
+    resources :genres, only: [:show]
     resources :recipes, only: [:new, :create, :show, :index, :edit, :update, :destroy] do
       resources :comments, only: [:create, :destroy] 
     end

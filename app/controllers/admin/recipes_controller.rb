@@ -33,7 +33,7 @@ class Admin::RecipesController < ApplicationController
 
   private
   def recipe_params
-    params.require(:recipe).permit(:image, :recipe_name, :required_time, :ingredient, :process,)
+    params.require(:recipe).permit(:genre_id, :image, :recipe_name, :required_time, :ingredient, :process,)
   end
 
 end
