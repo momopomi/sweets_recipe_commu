@@ -3,6 +3,17 @@ class Public::RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
   end
+  
+  def search
+    @recipes = Recipe.where(genre_id: params[:genre_id])
+    
+    if params[:keyword].present?
+      @recipes = Recipe.where('caption LIKE ?', "%#{params[:keyword]}%")
+      @keyword = params[:keyword]
+    else
+      @recipes = Recipe.all
+    end
+  end
 
   def create
     @recipe = Recipe.new(recipe_params)
@@ -30,7 +41,7 @@ class Public::RecipesController < ApplicationController
   def index
     @recipes = Recipe.all
     @genres = Genre.all
-    @search = Recipe.ransack(params[:recipe])
+    @search = Recipe.ransack(params[:q])
     @recipes = @search.result.page(params[:page]).per(8)
   end
 

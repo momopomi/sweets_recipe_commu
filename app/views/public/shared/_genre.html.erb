@@ -10,7 +10,7 @@
           <tr>
             <td class="underline">
             <i class="fas fa-caret-right">
-            <%= link_to genre.name, search_path(genre.id), method: :get %></i>
+            <%= link_to genre.name, search_path(genre_id: genre.id), method: :get %></i>
             </td>
           </tr>
         <% end %>

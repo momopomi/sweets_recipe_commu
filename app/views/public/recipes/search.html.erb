@@ -1,21 +1,9 @@
-<div class="container">
+ <div class="container">
   <div class="row">
-    
-   <!-- <div class="pull-right" style="margin-bottome: 10px;">-->
-	  <!--<%#= search_form_for(@search, url:recipes_path) do |f| %>-->
-	  <!--<%#= f.search_field :recipe_name_cont, class: 'form-control', placeholder: '検索ワード' %>-->
-	  <!--<%#= f.submit '検索', class: 'btn btn-primary' %>-->
-	  <!--<%# end %>-->
-   <!-- </div>-->
-    
-    <%= render "public/shared/genre", genres: @genres %>
-    
     <div class="col-sm-5 px-sm-0 offset-sm-1">
-      <h2>レシピ一覧</h2>
+      <h2>ジャンル検索結果　レシピ一覧</h2>
     <div class="col-sm-6 px-sm-0 text-right mb-2">
-      <%= link_to new_recipe_path, class:"btn btn--circle btn--circle-c btn--shadow" do %>
-        <i class="fas fa-plus"></i>
-      <% end %>
+   
     </div>
     <div class="row">
       <div class="col-sm-12 px-sm-0 mx-auto mb-5">
@@ -39,10 +27,11 @@
             </tr>
           </tbody>
           <% end %>
-        </table>
+      </table>
       <%#= paginate @items %>   
+      </div>
     </div>
-  </div>
 </div>
 </div>
 </div>
+ 
