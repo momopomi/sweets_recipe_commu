@@ -39,11 +39,15 @@ scope module: :public do
     resources :recipes, only: [:new, :create, :show, :index, :edit, :update, :destroy] do
       resources :comments, only: [:create, :destroy]
     end
+    
+    get 'recipes/ingredient' => 'recipes#ingredient'
 
     root "homes#top"
     get "/about" => "homes#about"
     get "/search/:genre_id" => "recipes#search", as: :search
   end
+  
+  
 
 
 end

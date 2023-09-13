@@ -6,13 +6,12 @@ class Public::RecipesController < ApplicationController
   
   def search
     @recipes = Recipe.where(genre_id: params[:genre_id])
-    
-    if params[:keyword].present?
-      @recipes = Recipe.where('caption LIKE ?', "%#{params[:keyword]}%")
-      @keyword = params[:keyword]
-    else
-      @recipes = Recipe.all
-    end
+
+  end
+  
+  def ingredient
+    @recipes = Recipe.all
+    @ingredient = Recipe.where(recipe_ingredient:"ingredient")
   end
 
   def create
