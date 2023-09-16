@@ -40,7 +40,7 @@ scope module: :public do
       resources :comments, only: [:create, :destroy]
     end
     
-    get 'recipes/ingredient' => 'recipes#ingredient'
+ 
 
     root "homes#top"
     get "/about" => "homes#about"

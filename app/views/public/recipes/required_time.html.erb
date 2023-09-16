@@ -1,0 +1,8 @@
+<%= form_for @recipe do |f| %>
+      <div class="new_2_field">
+        <%= f.label :required_time %>
+        <br>
+        <%= f.select :required_time, [["〜10分", "〜10分"], ["〜60分", "〜60分"], ["〜120分", "〜120分"], ["〜180分", "〜180分"]], include_blank: "選択して下さい" %>
+        <br>
+      <%= f.submit "投稿する" %>
+<% end %>

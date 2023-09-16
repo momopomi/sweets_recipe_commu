@@ -6,12 +6,6 @@ class Public::RecipesController < ApplicationController
   
   def search
     @recipes = Recipe.where(genre_id: params[:genre_id])
-
-  end
-  
-  def ingredient
-    @recipes = Recipe.all
-    @ingredient = Recipe.where(recipe_ingredient:"ingredient")
   end
 
   def create
@@ -42,6 +36,12 @@ class Public::RecipesController < ApplicationController
     @genres = Genre.all
     @search = Recipe.ransack(params[:q])
     @recipes = @search.result.page(params[:page]).per(8)
+    
+    @searchrequired_time = params[:search]
+    @search = @recipes.where(required_time: @searchrequired_time)
+  end
+  
+  def time
   end
 
   def update

@@ -1,16 +1,16 @@
 <div class="container">
   <div class="row">
-    
-   <!-- <div class="pull-right" style="margin-bottome: 10px;">-->
-	  <!--<%#= search_form_for(@search, url:recipes_path) do |f| %>-->
-	  <!--<%#= f.search_field :recipe_name_cont, class: 'form-control', placeholder: '検索ワード' %>-->
-	  <!--<%#= f.submit '検索', class: 'btn btn-primary' %>-->
-	  <!--<%# end %>-->
-   <!-- </div>-->
-    
+    <div class="col-xs-1">
     <%= render "public/shared/genre", genres: @genres %>
     
-    <%= link_to "ingredient", recipes_ingredient_path %>
+    
+    <%= form_tag({controller:"recipes",action:"index"}, method: :get) do %>
+    <%= select_tag :search, options_for_select([["〜10分", "〜10分"], ["〜60分", "〜60分"], ["〜120分", "〜120分"], ["〜180分", "〜180分"]]) %> 
+    <%= submit_tag "絞り込み" %>
+    <% end %>
+    
+   
+    </div>
     
     <div class="col-sm-5 px-sm-0 offset-sm-1">
       <h2>レシピ一覧</h2>
@@ -41,10 +41,10 @@
             </tr>
           </tbody>
           <% end %>
-        </table>
+      </table>
       <%#= paginate @items %>   
+      </div>
     </div>
   </div>
-</div>
 </div>
 </div>
