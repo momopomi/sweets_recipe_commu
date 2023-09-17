@@ -3,12 +3,10 @@
     <div class="col-xs-1">
     <%= render "public/shared/genre", genres: @genres %>
     
-    
     <%= form_tag({controller:"recipes",action:"index"}, method: :get) do %>
-    <%= select_tag :search, options_for_select([["〜10分", "〜10分"], ["〜60分", "〜60分"], ["〜120分", "〜120分"], ["〜180分", "〜180分"]]) %> 
+    <%= select_tag :search, options_for_select([["〜10分", 10], ["〜60分", 60], ["〜120分", 120], ["〜180分", 180]]) %> 
     <%= submit_tag "絞り込み" %>
     <% end %>
-    
    
     </div>
     

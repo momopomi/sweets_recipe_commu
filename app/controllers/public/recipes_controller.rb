@@ -32,17 +32,15 @@ class Public::RecipesController < ApplicationController
   end
   
   def index
-    @recipes = Recipe.all
-    @genres = Genre.all
-    @search = Recipe.ransack(params[:q])
-    @recipes = @search.result.page(params[:page]).per(8)
-    
-    @searchrequired_time = params[:search]
-    @search = @recipes.where(required_time: @searchrequired_time)
+      @recipes = Recipe.all
+      @genres = Genre.all
+      
+    if params[:search]
+      @searchrequired_time = params[:search].to_i
+      @recipes = Recipe.where(required_time: 0..@searchrequired_time)
+    end
   end
   
-  def time
-  end
 
   def update
      @recipe = Recipe.find(params[:id])
