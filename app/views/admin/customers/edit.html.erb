@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row my-3">
     <div class="col-sm-8 px-sm-0 offset-sm-1">
-      <h2><%= @customer.last_name + @customer.first_name %>さんの会員詳細</h2>
+      <h2><%= @customer.last_name + @customer.first_name %>さんの会員情報編集</h2>
     </div>
   </div>
   <%= form_with model: @customer, url: admin_customer_path(@customer.id), local: :true, method: :put do |f| %>

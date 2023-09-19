@@ -28,7 +28,7 @@
             <% if @customer.is_deleted == false %>
               <td class="text-success font-weight-bold">有効</td>
             <% else %>
-              <td class="text-secondary">退会<td>
+              <td class="text-secondary">退会</td>
             <% end %>
         </tr>
       </table>
@@ -37,7 +37,7 @@
   <div class="row mb-2">
     <div class="col-lg-6 px-sm-0 offset-sm-1">
       <%= link_to "編集する", edit_admin_customer_path(@customer.id), class:"btn btn-success my-1 mx-4 px-4" %>
-      <%= link_to "投稿履歴一覧を見る", admin_path(id: @customer), class:"btn btn-primary mx-4 px-4" %>
+      <%= link_to "投稿履歴一覧を見る", admin_recipes_path, class:"btn btn-primary mx-4 px-4" %>
     </div>
   </div>
 

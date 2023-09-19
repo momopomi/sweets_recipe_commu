@@ -56,7 +56,7 @@ class Public::RecipesController < ApplicationController
   def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
-    flash[:success] = "選択いただいたカートを空にしました"
+    flash[:success] = "レシピを削除"
     redirect_back(fallback_location: root_path)
   end
 

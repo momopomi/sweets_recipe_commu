@@ -24,9 +24,9 @@ namespace :admin do
 
     resources :genres, only: [:index, :edit, :create, :update, :destroy]
 
-    resources :recipes, only: [:index, :show, :edit, :update, :destroy]
-
-    resources :comments, only: [:destroy]
+    resources :recipes, only: [:index, :show, :edit, :update, :destroy] do
+      resources :comments, only: [:destroy]
+    end
     get "/search" => "recipes#search"
   end
 
