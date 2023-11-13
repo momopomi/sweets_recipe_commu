@@ -14,13 +14,9 @@
         <h5>所要時間（分単位で入力）</h5>
         <%= @recipe.required_time %>分
       </div>
-
-
         <div class="mt-3 text-right">
-          <%= link_to '編集',edit_admin_recipe_path(@recipe.id), class: "btn btn-primary"%>
+          <%= link_to '編集する',edit_admin_recipe_path(@recipe.id), class: "btn btn-primary"%>
         </div>
-
-
     </div>
   </div>
 
@@ -38,8 +34,6 @@
       </div>
     </div>
   </div>
-
- 
 
       <table>
         <strong>コメント一覧</strong>
@@ -69,9 +63,6 @@
             </tr>
         <% end %>
       </table>
-
-
-
 
   </div>
 </div>
